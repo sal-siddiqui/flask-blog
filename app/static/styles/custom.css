@@ -1,0 +1,16 @@
+.input:focus, .textarea:focus {
+    outline: red; /* Remove the default outline */
+    box-shadow: none; /* Remove the blue shadow */
+    border-color: inherit; /* Keep the original border color */
+  }
+  
+  .custom-border {
+    box-shadow: none; /* Remove the blue shadow */
+    border-color: inherit; /* Keep the original border color */
+  }
+
+  .control.has-icons-left .input:focus ~ .icon,
+.control.has-icons-left .select:focus ~ .icon, .control.has-icons-right .input:focus ~ .icon,
+.control.has-icons-right .select:focus ~ .icon {
+  color: gray;
+}

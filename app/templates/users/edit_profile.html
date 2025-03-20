@@ -1,0 +1,42 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+    <div class="box is-radiusless">
+        <p class="title">Edit Profile</p>
+        <hr />
+
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <div class="field">
+                {{ form.username.label(class='label') }}
+                <p class="control has-icons-left">
+                    {{ form.username(class='input is-radiusless', placeholder='tonystark') }}
+                    <span class="icon is-small is-left">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+                </p>
+                {% for error in form.username.errors %}
+                    <p class="help is-danger">{{ error }}</p>
+                {% endfor %}
+            </div>
+
+            <div class="field">
+                {{ form.about_me.label(class='label') }}
+                <p class="control has-icons-left">
+                    {{ form.about_me(class='input is-radiusless', placeholder='I am Iron Man') }}
+                    <span class="icon is-small is-left">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </span>
+                </p>
+                {% for error in form.about_me.errors %}
+                    <p class="help is-danger">{{ error }}</p>
+                {% endfor %}
+            </div>
+
+            <div class="field mt-5">
+                <div class="control">
+                    {{ form.submit(class='button is-radiusless', type='submit') }}
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

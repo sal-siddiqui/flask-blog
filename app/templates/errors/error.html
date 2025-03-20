@@ -1,0 +1,14 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+    <!-- CONTAINER -->
+    <div class="box is-radiusless">
+        <!-- Error Code & Name -->
+        <p class="title">Error {{ error.code }}: {{ error.name }}</p>
+        <hr />
+        <!-- Error Description -->
+        <p>{{ error.description }}</p>
+        <!-- Additional Messages -->
+        <br />
+        <p class="has-text-danger">{{ append }}</p>
+    </div>
+{% endblock content %}

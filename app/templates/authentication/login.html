@@ -1,0 +1,58 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+    <!-- CONTAINER -->
+    <div class="box is-radiusless">
+        <!-- FORM HEADING -->
+        <p class="title">Log In!</p>
+        <hr />
+        <!-- FORM BODY -->
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <!-- USERNAME -->
+            <div class="field">
+                {{ form.username.label(class='label') }}
+                <p class="control has-icons-left">
+                    {{ form.username(class='input is-radiusless', placeholder='tonystark') }}
+                    <span class="icon is-small is-left">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+                </p>
+                {% for error in form.username.errors %}
+                    <p class="help is-danger">{{ error }}</p>
+                {% endfor %}
+            </div>
+            <!-- PASSWORD -->
+            <div class="field">
+                {{ form.password.label(class='label') }}
+                <p class="control has-icons-left">
+                    {{ form.password(class='input is-radiusless', placeholder='ilovepepper3000') }}
+                    <span class="icon is-small is-left">
+                        <i class="fa-solid fa-key"></i>
+                    </span>
+                </p>
+                {% for error in form.username.errors %}
+                    <p class="help is-danger">{{ error }}</p>
+                {% endfor %}
+            </div>
+            <!-- REMEMBER ME -->
+            <div class="field mt-5">
+                <div class="control">
+                    <label class="checkbox">
+                        {{ form.remember_me(class='mr-2') }}
+                        {{ form.remember_me.label }}
+                    </label>
+                </div>
+            </div>
+            <!-- SIGN IN -->
+            <div class="field is-grouped mt-5">
+                <div class="control">
+                    {{ form.login(class='button is-radiusless', type='submit') }}
+                </div>
+                <div class="control">
+                    <a class="button is-radiusless is-light"
+                       href='{{ url_for("authentication_web.register") }}'>Sign Up Instead</a>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

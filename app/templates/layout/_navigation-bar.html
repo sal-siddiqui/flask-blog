@@ -1,0 +1,60 @@
+<nav class="navbar is-dark has-text-weight-medium"
+     role="navigation"
+     aria-label="main navigation">
+
+    <!-- LOGO -->
+    <div class="navbar-brand">
+        <a href='{{ url_for("core_web.home") }}' class="navbar-item title is-4">
+            <span class="icon">
+                <i class="fa-solid fa-comments"></i>
+            </span>
+            FlaskBlog
+        </a>
+    </div>
+
+    <!-- NAVIGATION MENU ITEMS  -->
+    <div class="navbar-menu">
+        <!-- LEFT SIDE -->
+        <div class="navbar-start">
+            {% if current_user.is_authenticated %}
+                <a href='{{ url_for("core_web.home") }}' class="navbar-item">
+                    <span class="icon">
+                        <i class="fa-solid fa-house"></i>
+                    </span>
+                    Home
+                </a>
+                <a href='{{ url_for("users_web.profile", username=current_user.username) }}'
+                   class="navbar-item">
+                    <span class="icon">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+                    Profile
+                </a>
+            {% endif %}
+        </div>
+        <!-- RIGHT SIDE -->
+        <div class="navbar-end">
+            {% if current_user.is_authenticated %}
+                <a href='{{ url_for("authentication_web.logout") }}' class="navbar-item">
+                    <i class="fa-solid fa-door-open"></i>
+                    Logout
+                </a>
+            {% else %}
+                <a href='{{ url_for("authentication_web.login") }}' class="navbar-item">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    Login
+                </a>
+                <a href='{{ url_for("authentication_web.register") }}'
+                   class="navbar-item">
+                    <span class="icon">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </span>
+                    Register
+                </a>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</nav>
