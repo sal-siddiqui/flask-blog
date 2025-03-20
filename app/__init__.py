@@ -2,7 +2,7 @@ from flask import Flask
 
 from app.config import Config
 
-from app.extensions import db, migrate, bcrypt, login
+from app.extensions import db, migrate, bcrypt, login, mail
 
 from app.routes.core import bp_core_web
 from app.routes.authentication import bp_authentication_web
@@ -22,6 +22,7 @@ def create_app():
     migrate.init_app(app, db)
     bcrypt.init_app(app)
     login.init_app(app)
+    mail.init_app(app)
 
     # register blueprints
     app.register_blueprint(bp_core_web)
