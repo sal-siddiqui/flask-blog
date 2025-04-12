@@ -4,6 +4,8 @@ from datetime import datetime, timezone
 from app.extensions import db, bcrypt, login
 from app.utils.helpers import get_gravatar
 
+from app.utils.models.Followers import followers
+
 
 @login.user_loader
 def load_user(id):
@@ -21,6 +23,15 @@ class User(UserMixin, db.Model):
     last_seen = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
 
     posts = db.relationship("Post", back_populates="author")
+
+    following = db.relationship(
+        "User",
+        secondary=followers,
+        primaryjoin=(followers.c.follower_id == id),
+        secondaryjoin=(followers.c.followed_id == id),
+        backref=db.backref("followers", lazy="dynamic"),
+        lazy="dynamic",
+    )
 
     def __repr__(self):
         return f"<User {self.id}>"

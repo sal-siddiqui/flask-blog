@@ -33,7 +33,7 @@ def profile(username):
 @bp_users_web.route("/edit_profile", methods=["GET", "POST"])
 @login_required
 def edit_profile():
-    form = EditProfileForm()
+    form = EditProfileForm(current_user.username)
 
     # ——— GET Request
     if request.method == "GET":
