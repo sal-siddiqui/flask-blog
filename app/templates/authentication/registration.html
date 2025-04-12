@@ -1,0 +1,71 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+    <!-- CONTAINER -->
+    <div class="box is-radiusless">
+        <!-- FORM HEADING -->
+        <p class="title">Join Today!</p>
+        <hr />
+        <!-- FORM BODY -->
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <!-- USERNAME -->
+            <div class="field">
+                {{ form.username.label(class='label') }}
+                <p class="control has-icons-left">
+                    {{ form.username(class='input is-radiusless', placeholder='tonystark') }}
+                    <span class="icon is-small is-left">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+                </p>
+                {% for error in form.username.errors %}
+                    <p class="help is-danger">{{ error }}</p>
+                {% endfor %}
+            </div>
+            <!-- EMAIL -->
+            <div class="field">
+                {{ form.email.label(class='label') }}
+                <p class="control has-icons-left">
+                    {{ form.email(class='input is-radiusless', placeholder='tonystark@avengers.org') }}
+                    <span class="icon is-small is-left">
+                        <i class="fa-solid fa-envelope"></i>
+                    </span>
+                </p>
+                {% for error in form.email.errors %}
+                    <p class="help is-danger">{{ error }}</p>
+                {% endfor %}
+            </div>
+            <!-- PASSWORD -->
+            <div class="field">
+                {{ form.password.label(class='label') }}
+                <p class="control has-icons-left">
+                    {{ form.password(class='input is-radiusless', placeholder='ilovepepper3000') }}
+                    <span class="icon is-small is-left">
+                        <i class="fa-solid fa-key"></i>
+                    </span>
+                </p>
+                {% for error in form.password.errors %}
+                    <p class="help is-danger">{{ error }}</p>
+                {% endfor %}
+            </div>
+            <!-- CONFIRM PASSWORD -->
+            <div class="field">
+                {{ form.confirm_password.label(class='label') }}
+                <p class="control has-icons-left">
+                    {{ form.confirm_password(class='input is-radiusless', placeholder='***************') }}
+                    <span class="icon is-small is-left">
+                        <i class="fa-solid fa-key"></i>
+                    </span>
+                </p>
+                {% for error in form.confirm_password.errors %}
+                    <p class="help is-danger">{{ error }}</p>
+                {% endfor %}
+            </div>
+            <!-- SIGN UP -->
+            <div class="field mt-5">
+                <div class="control">
+                    {{ form.register(class='button is-radiusless', type='submit') }}
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

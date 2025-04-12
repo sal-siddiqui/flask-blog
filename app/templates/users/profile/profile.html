@@ -1,0 +1,10 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+    <!-- Profile Card -->
+    {% include 'users/profile/_profile_card.html' %}
+
+    <!-- User Posts -->
+    {% for post in posts %}
+        {% include 'users/profile/_post.html' %}
+    {% endfor %}
+{% endblock %}

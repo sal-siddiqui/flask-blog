@@ -1,0 +1,48 @@
+<div class="card is-radiusless">
+    <div class="card-content">
+        <div class="media is-flex is-align-items-center">
+            <div class="media-left">
+                <figure class="image is-96x96">
+                    <img class="is-rounded"
+                         src="{{ user.avatar(96) }}"
+                         alt="Placeholder image"
+                         width="96"
+                         height="96" />
+                </figure>
+            </div>
+            <div class="media-content mt-3">
+                <p class="title is-4 mb-1">{{ user.username }}</p>
+                <p class="subtitle is-6">{{ user.email }}</p>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="content">
+            {% if user.about_me %}
+                {{ user.about_me }}
+            {% else %}
+                ...
+            {% endif %}
+            <br />
+            <br />
+            <time>
+                Last seen on:
+                {% if user.last_seen %}
+                    {{ user.last_seen }}
+                {% else %}
+                    N/A
+                {% endif %}
+            </time>
+        </div>
+        <a href='{{ url_for("users_web.edit_profile") }}'
+           class="button is-radiusless">
+            <span class="icon-text">
+                <span class="icon">
+                    <i class="fa-solid fa-user-pen"></i>
+                </span>
+                <span>Edit Profile</span>
+            </span>
+        </a>
+    </div>
+</div>

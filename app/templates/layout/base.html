@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="has-background-light">
+    <!-- HEAD -->
+    <head>
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- LINK & SCRIPT TAGS -->
+        {% include "layout/_link-scripts.html" %}
+        <title>
+            {% if title is defined %}
+                FlaskBlog - {{ title }}
+            {% else %}
+                FlaskBlog
+            {% endif %}
+        </title>
+    </head>
+    <!-- BODY -->
+    <body>
+        <!-- NAVIGATION BAR -->
+        {% include "layout/_navigation-bar.html" %}
+
+        <!-- BODY -->
+        <main class="container mx-6 my-6">
+            <div class="columns ">
+                <!-- LEFT SIDE -->
+                <div class="column is-two-thirds">
+                    <!-- FLASH MESSSAGES -->
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="notification is-light is-radiusless is-{{ category }}">
+                                    <i class="fa-solid fa-circle-xmark is-pulled-right is-clickable close-notification"></i>
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <!-- CHILD CONTENT -->
+                    {% block content %}
+                    {% endblock content %}
+                </div>
+                <!-- RIGHT SIDE -->
+                <div class="column is-one-thirds">
+                    <!-- CALENDAR & ANNOUNCEMENTS -->
+                    {% include "layout/_calendar-announcements.html" %}
+                </div>
+            </div>
+
+        </main>
+    </body>
+</html>
