@@ -1,6 +1,7 @@
 from flask import Flask
 
 from app.config import Config
+from app.routes import bp_default_web
 
 
 def create_app():
@@ -11,9 +12,9 @@ def create_app():
     app.config.from_object(Config)
 
     # initalize the extensions
-    ...
+    # ...
 
     # register blueprints
-    ...
+    app.register_blueprint(bp_default_web)
 
     return app
