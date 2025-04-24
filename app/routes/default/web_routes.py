@@ -27,7 +27,7 @@ posts = [
 @bp_default_web.route("/home")
 @bp_default_web.route("/")
 def home():
-    return render_template("home.html")
+    return render_template("home.html", posts=posts)
 
 
 @bp_default_web.route("/about")
