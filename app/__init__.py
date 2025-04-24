@@ -1,7 +1,9 @@
 from flask import Flask
 
 from app.config import Config
-from app.routes import bp_default_web
+
+from app.routes.default import bp_default_web
+from app.routes.authentication import bp_authentication_web
 
 
 def create_app():
@@ -16,5 +18,6 @@ def create_app():
 
     # register blueprints
     app.register_blueprint(bp_default_web)
+    app.register_blueprint(bp_authentication_web)
 
     return app
