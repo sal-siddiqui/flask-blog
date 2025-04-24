@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" class="has-background-light">
+    <head>
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- link tags -->
+        {% include 'layout/_link-tags.html' %}
+
+        {% if title %}
+            <title>Flask Blog - {{ title }}</title>
+        {% else %}
+            <title>Flask Blog</title>
+        {% endif %}
+    </head>
+    <body>
+        <!-- navigation bar -->
+        {% include 'layout/_navigation-bar.html' %}
+
+        <!-- main content -->
+        <main class="container mx-6 my-6">
+            <div class="columns is-8">
+                <div class="column is-two-thirds">
+                    {% block content %}
+                    {% endblock content %}
+                </div>
+                <div class="column is-one-third">
+                    {% include 'layout/_side-content.html' %}
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

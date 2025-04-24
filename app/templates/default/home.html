@@ -1,0 +1,18 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+    {% for post in posts %}
+        <div class="card is-radiusless">
+            <div class="card-content">
+                <p class="title is-spaced">
+                    <a href="#" class="has-text-inherit">{{ post.title }}</a>
+                </p>
+                <p class="subtitle is-6">
+                    <a href="#" class="has-text-inherit">{{ post.author }}</a> • {{ post.date_posted }}
+                </p>
+                <p>
+                    <a href="#" class="has-text-inherit">{{ post.content }}</a>
+                </p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock content %}
