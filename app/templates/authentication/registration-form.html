@@ -1,4 +1,60 @@
 {% extends 'layout/base.html' %}
 {% block content %}
-    <div class="box is-radiusless">Registration Form Goes Here</div>
+    <div class="box is-radiusless">
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <p class="title">
+                <i class="fa-regular fa-id-card"></i>
+                Registration Form
+            </p>
+            <hr />
+            <!-- username -->
+            <div class="field">
+                {{ form.username.label(class='label') }}
+                <div class="control has-icons-left">
+                    {{ form.username(class='input is-radiusless') }}
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                    </span>
+                </div>
+            </div>
+            <!-- email -->
+            <div class="field">
+                {{ form.email.label(class='label') }}
+                <div class="control has-icons-left">
+                    {{ form.email(class='input is-radiusless') }}
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                </div>
+            </div>
+            <!-- password -->
+            <div class="field">
+                {{ form.password.label(class='label') }}
+                <div class="control has-icons-left">
+                    {{ form.password(class='input is-radiusless') }}
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                </div>
+            </div>
+            <!-- confirm password -->
+            <div class="field">
+                {{ form.confirm_password.label(class='label') }}
+                <div class="control has-icons-left">
+                    {{ form.confirm_password(class='input is-radiusless') }}
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                </div>
+            </div>
+            <!-- submit button -->
+            <div class="field">
+                <p class="control">
+                    {{ form.submit(class='button is-radiusless') }}
+                </p>
+            </div>
+        </form>
+        <hr />
+    </div>
 {% endblock %}

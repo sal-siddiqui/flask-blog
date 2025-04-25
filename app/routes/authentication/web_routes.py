@@ -13,6 +13,7 @@ bp_authentication_web = Blueprint(
 @bp_authentication_web.route("/register")
 def register():
     form = RegistrationForm()
+    print(form.confirm_password.label)
     return render_template("registration-form.html", form=form, title="Registration")
 
 
