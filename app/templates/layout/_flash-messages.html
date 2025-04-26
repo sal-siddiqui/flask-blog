@@ -1,0 +1,9 @@
+{% with messages = get_flashed_messages(with_categories=true) %}
+
+    {% for category, message in messages %}
+        <div class="notification is-{{ category }} is-light is-radiusless is-italic">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+{% endwith %}

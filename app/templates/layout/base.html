@@ -23,6 +23,7 @@
         <main class="container mx-6 my-6">
             <div class="columns is-8">
                 <div class="column is-two-thirds">
+                    {% include 'layout/_flash-messages.html' %}
                     {% block content %}
                     {% endblock content %}
                 </div>
