@@ -13,17 +13,20 @@
     </div>
     <div class="navbar-menu" id="navMenu">
         <div class="navbar-start">
-            <a href="#" class="navbar-item">
+            <a href='{{ url_for("default_web.home") }}'
+               class="navbar-item">
                 <i class="fa-solid fa-house"></i>
                 Home
             </a>
         </div>
         <div class="navbar-end">
-            <a href="#" class="navbar-item">
-                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            <a href='{{ url_for("authentication_web.login") }}'
+               class="navbar-item">
+                <i class="fa-solid fa-door-closed"></i>
                 Login
             </a>
-            <a href="#" class="navbar-item">
+            <a href='{{ url_for("authentication_web.register") }}'
+               class="navbar-item">
                 <i class="fa-solid fa-user-plus"></i>
                 Register
             </a>
