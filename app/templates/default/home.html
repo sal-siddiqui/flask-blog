@@ -3,12 +3,17 @@
     {% for post in posts %}
         <div class="card is-radiusless">
             <div class="card-content">
+                <!-- TITLE -->
                 <p class="title is-spaced">
                     <a href="#" class="has-text-inherit">{{ post.title }}</a>
                 </p>
+
+                <!-- AUTHOR & DATE POSTED -->
                 <p class="subtitle is-6">
                     <a href="#" class="has-text-inherit">{{ post.author }}</a> • {{ post.date_posted }}
                 </p>
+
+                <!-- CONTENT -->
                 <p>
                     <a href="#" class="has-text-inherit">{{ post.content }}</a>
                 </p>

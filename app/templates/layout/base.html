@@ -16,17 +16,20 @@
         {% endif %}
     </head>
     <body>
-        <!-- navigation bar -->
+        <!-- NAVIGATION BAR -->
         {% include 'layout/_navigation-bar.html' %}
 
-        <!-- main content -->
+        <!-- BODY -->
         <main class="container mx-6 my-6">
             <div class="columns is-8">
+                <!-- MAIN CONTENT -->
                 <div class="column is-two-thirds">
                     {% include 'layout/_flash-messages.html' %}
                     {% block content %}
                     {% endblock content %}
                 </div>
+
+                <!-- SIDE CONTENT -->
                 <div class="column is-one-third">
                     {% include 'layout/_side-content.html' %}
                 </div>

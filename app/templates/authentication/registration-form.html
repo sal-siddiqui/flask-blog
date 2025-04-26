@@ -11,17 +11,21 @@
 
 {% block content %}
     <div class="box is-radiusless">
+
         <form action=""
               method="post"
               autocomplete="off"
               novalidate>
             {{ form.hidden_tag() }}
+
+            <!-- TITLE -->
             <p class="title">
                 <i class="fa-regular fa-id-card"></i>
                 Registration Form
             </p>
             <hr />
 
+            <!-- FIELDS -->
             {% for label, field, icon in zip(input_labels, input_fields, input_icons) %}
                 <div class="field is-horizontal">
                     <div class="field-label is-normal">
@@ -59,7 +63,6 @@
                 </div>
             {% endfor %}
 
-            <!-- submit button -->
             <div class="field is-horizontal">
                 <div class="field-label">
                     <!-- Left empty for spacing -->
@@ -75,6 +78,8 @@
         </form>
 
         <hr />
+
+        <!-- EXTRAS -->
         <div class="list">
             <div class="list-item px-0">
                 <div class="list-item-content">
@@ -83,7 +88,7 @@
                     </div>
                     <div class="list-item-description mt-1 is-italic">
                         <a href='{{ url_for("authentication_web.login") }}'
-                           class="has-text-link">Login.</a>
+                           class="has-text-link">Log In</a>
                     </div>
                 </div>
             </div>
