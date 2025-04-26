@@ -1,4 +1,14 @@
 {% extends 'layout/base.html' %}
+
+{% set input_labels = [form.username.label, form.email.label, form.password.label, form.confirm_password.label] %}
+{% set input_fields = [form.username, form.email, form.password, form.confirm_password] %}
+{% set input_icons = [
+    "fas fa-user",
+    "fas fa-envelope",
+    "fas fa-lock",
+    "fas fa-lock"
+] %}
+
 {% block content %}
     <div class="box is-radiusless">
         <form action=""
@@ -12,151 +22,42 @@
             </p>
             <hr />
 
-            <!-- username -->
-            <div class="field is-horizontal">
-                <div class="field-label is-normal">
-                    {{ form.username.label(class='label has-text-centered') }}
-                </div>
-                <div class="field-body">
-                    {% if form.username.errors %}
-                        <div class="field">
-                            <div class="control has-icons-left has-icons-right">
-                                {{ form.username(class='input is-radiusless is-danger') }}
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-user"></i>
-                                </span>
-                                <span class="icon is-small is-right">
-                                    <i class="fas fa-exclamation-triangle"></i>
-                                </span>
+            {% for label, field, icon in zip(input_labels, input_fields, input_icons) %}
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        {{ label(class='label has-text-centered') }}
+                    </div>
+                    <div class="field-body">
+                        {% if field.errors %}
+                            <div class="field">
+                                <div class="control has-icons-left has-icons-right">
+                                    {{ field(class='input is-radiusless is-danger') }}
+                                    <span class="icon is-small is-left">
+                                        <i class="{{ icon }}"></i>
+                                    </span>
+                                    <span class="icon is-small is-right">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </span>
+                                </div>
+                                {% for error in field.errors %}
+                                    <p class="help is-danger is-italic">
+                                        {{ error }}
+                                    </p>
+                                {% endfor %}
                             </div>
-                            {% for error in form.username.errors %}
-                                <p class="help is-danger is-italic">
-                                    {{ error }}
-                                </p>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        <div class="field">
-                            <div class="control has-icons-left">
-                                {{ form.username(class='input is-radiusless') }}
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-user"></i>
-                                </span>
+                        {% else %}
+                            <div class="field">
+                                <div class="control has-icons-left">
+                                    {{ field(class='input is-radiusless') }}
+                                    <span class="icon is-small is-left">
+                                        <i class="{{ icon }}"></i>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                    {% endif %}
-
+                        {% endif %}
+                    </div>
                 </div>
-            </div>
-
-            <!-- email -->
-            <div class="field is-horizontal">
-                <div class="field-label is-normal">
-                    {{ form.email.label(class='label has-text-centered') }}
-                </div>
-                <div class="field-body">
-                    {% if form.email.errors %}
-                        <div class="field">
-                            <div class="control has-icons-left has-icons-right">
-                                {{ form.email(class='input is-radiusless is-danger') }}
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-envelope"></i>
-                                </span>
-                                <span class="icon is-small is-right">
-                                    <i class="fas fa-exclamation-triangle"></i>
-                                </span>
-                            </div>
-                            {% for error in form.email.errors %}
-                                <p class="help is-danger is-italic">
-                                    {{ error }}
-                                </p>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        <div class="field">
-                            <div class="control has-icons-left">
-                                {{ form.email(class='input is-radiusless') }}
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-envelope"></i>
-                                </span>
-                            </div>
-                        </div>
-                    {% endif %}
-                </div>
-            </div>
-
-            <!-- password -->
-            <div class="field is-horizontal">
-                <div class="field-label is-normal">
-                    {{ form.password.label(class='label has-text-centered') }}
-                </div>
-                <div class="field-body">
-                    {% if form.password.errors %}
-                        <div class="field">
-                            <div class="control has-icons-left has-icons-right">
-                                {{ form.password(class='input is-radiusless is-danger') }}
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-lock"></i>
-                                </span>
-                                <span class="icon is-small is-right">
-                                    <i class="fas fa-exclamation-triangle"></i>
-                                </span>
-                            </div>
-                            {% for error in form.password.errors %}
-                                <p class="help is-danger is-italic">
-                                    {{ error }}
-                                </p>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        <div class="field">
-                            <div class="control has-icons-left">
-                                {{ form.password(class='input is-radiusless') }}
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-lock"></i>
-                                </span>
-                            </div>
-                        </div>
-                    {% endif %}
-
-                </div>
-            </div>
-
-            <!-- confirm password -->
-            <div class="field is-horizontal">
-                <div class="field-label is-normal">
-                    {{ form.confirm_password.label(class='label has-text-centered') }}
-                </div>
-                <div class="field-body">
-                    {% if form.confirm_password.errors %}
-                        <div class="field">
-                            <div class="control has-icons-left has-icons-right">
-                                {{ form.confirm_password(class='input is-radiusless is-danger') }}
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-lock"></i>
-                                </span>
-                                <span class="icon is-small is-right">
-                                    <i class="fas fa-exclamation-triangle"></i>
-                                </span>
-                            </div>
-                            {% for error in form.confirm_password.errors %}
-                                <p class="help is-danger is-italic">
-                                    {{ error }}
-                                </p>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        <div class="field">
-                            <div class="control has-icons-left">
-                                {{ form.confirm_password(class='input is-radiusless') }}
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-lock"></i>
-                                </span>
-                            </div>
-                        </div>
-                    {% endif %}
-                </div>
-            </div>
+            {% endfor %}
 
             <!-- submit button -->
             <div class="field is-horizontal">
@@ -181,7 +82,8 @@
                         Already have an account?
                     </div>
                     <div class="list-item-description mt-1 is-italic">
-                        <a href='{{ url_for("authentication_web.login") }}'>Go to login page.</a>
+                        <a href='{{ url_for("authentication_web.login") }}'
+                           class="has-text-link">Login.</a>
                     </div>
                 </div>
             </div>

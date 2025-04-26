@@ -1,6 +1,108 @@
 {% extends 'layout/base.html' %}
+
+{% set input_labels = [form.email.label, form.password.label] %}
+{% set input_fields = [form.email, form.password] %}
+{% set input_icons = ["fas fa-envelope", "fas fa-lock"] %}
+
 {% block content %}
     <div class="box is-radiusless">
-        Login Form Goes Here
+        <form action=""
+              method="post"
+              autocomplete="off"
+              novalidate>
+            {{ form.hidden_tag() }}
+            <p class="title">
+                <i class="fa-solid fa-door-closed"></i>
+                Login Form
+            </p>
+            <hr />
+
+            {% for label, field, icon in zip(input_labels, input_fields, input_icons) %}
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        {{ label(class='label has-text-centered') }}
+                    </div>
+                    <div class="field-body">
+                        {% if field.errors %}
+                            <div class="field">
+                                <div class="control has-icons-left has-icons-right">
+                                    {{ field(class='input is-radiusless is-danger') }}
+                                    <span class="icon is-small is-left">
+                                        <i class="{{ icon }}"></i>
+                                    </span>
+                                    <span class="icon is-small is-right">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </span>
+                                </div>
+                                {% for error in field.errors %}
+                                    <p class="help is-danger is-italic">
+                                        {{ error }}
+                                    </p>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div class="field">
+                                <div class="control has-icons-left">
+                                    {{ field(class='input is-radiusless') }}
+                                    <span class="icon is-small is-left">
+                                        <i class="{{ icon }}"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+
+            <div class="field is-horizontal">
+                <div class="field-label">
+                    {{ form.remember_me.label(class='label') }}
+                </div>
+                <div class="field-body">
+                    <div class="field is-narrow">
+                        <div class="control">{{ form.remember_me }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- submit button -->
+            <div class="field is-horizontal">
+                <div class="field-label">
+                    <!-- Left empty for spacing -->
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            {{ form.submit(class='button is-radiusless') }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <hr />
+        <div class="list">
+            <div class="list-item px-0">
+                <div class="list-item-content">
+                    <div class="list-item-title">
+                        Don't have an account?
+                    </div>
+                    <div class="list-item-description mt-1 is-italic">
+                        <a href='{{ url_for("authentication_web.register") }}'
+                           class="has-text-link">Create one.</a>
+                    </div>
+                </div>
+            </div>
+            <div class="list-item px-0">
+                <div class="list-item-content">
+                    <div class="list-item-title">
+                        Forgot your password?
+                    </div>
+                    <div class="list-item-description mt-1 is-italic">
+                        <a href='#' class="has-text-link">Reset it.</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

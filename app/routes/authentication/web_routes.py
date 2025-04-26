@@ -12,24 +12,29 @@ bp_authentication_web = Blueprint(
 
 @bp_authentication_web.route("/register", methods=["GET", "POST"])
 def register():
+    form = RegistrationForm()
     # Handle GET request
     if request.method == "GET":
-        form = RegistrationForm()
-        return render_template("registration-form.html", form=form, title="Registration")
+        return render_template("registration-form.html", form=form, title="Registration", zip=zip)
     # Handle POST request
-    if request.method == "POST":
-        form = RegistrationForm()
-        if form.validate_on_submit():
-            flash(f"Account created successfully for {form.username.data}.", category="success")
-            return redirect(url_for("default_web.home"))
-        else:
-            flash(
-                "Error submitting form. Please check the fields and try again.", category="danger"
-            )
-            return render_template("registration-form.html", form=form, title="Registration")
+    if form.validate_on_submit():
+        flash(f"Account created successfully for {form.username.data}.", category="success")
+        return redirect(url_for("default_web.home"))
+    else:
+        flash("Error submitting form. Please check the fields and try again.", category="danger")
+        return render_template("registration-form.html", form=form, title="Registration", zip=zip)
 
 
-@bp_authentication_web.route("/login")
+@bp_authentication_web.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm()
-    return render_template("login-form.html", form=form, title="Login")
+    # Handle GET request
+    if request.method == "GET":
+        return render_template("login-form.html", form=form, title="Login", zip=zip)
+    # Handle POST request
+    if form.validate_on_submit():
+        flash(f"Logged in as {form.email.data}.", category="success")
+        return redirect(url_for("default_web.home"))
+    else:
+        flash("Error logging in. Please check the fields and try again.", category="danger")
+        return render_template("login-form.html", form=form, title="Login", zip=zip)
