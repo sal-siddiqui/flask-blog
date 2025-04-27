@@ -1,4 +1,31 @@
 {% extends 'layout/base.html' %}
+
+{% set options %}
+    {% if current_user == post.author %}
+        <div class="buttons">
+            <a href='{{ url_for("post_web.update_post", post_id=post.id) }}'
+               class="button is-radiusless">
+                <span class="icon">
+                    <i class="fa-solid fa-pen"></i>
+                </span>
+                <span>Edit</span>
+            </a>
+            <a href="#"
+               class="button is-radiusless"
+               id="delete-button">
+                <span class="icon">
+                    <i class="fa-solid fa-trash"></i>
+                </span>
+                <span>Delete</span>
+            </a>
+        </div>
+
+        <!-- Modal Structure -->
+        {% include './post/_delete-modal.html' %}
+    {% endif %}
+
+{% endset %}
+
 {% block content %}
     {% include './post/_post.html' %}
 {% endblock content %}
