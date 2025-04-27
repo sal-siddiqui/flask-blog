@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template
+from flask_login import login_required
 
 # initialize blueprint
 bp_default_web = Blueprint(
@@ -44,6 +45,7 @@ posts = [
 
 @bp_default_web.route("/home")
 @bp_default_web.route("/")
+@login_required
 def home():
     return render_template("home.html", posts=posts)
 
