@@ -1,6 +1,30 @@
 {% extends 'layout/base.html' %}
+
 {% block content %}
     <div class="box is-radiusless">
-        user details go here...
+        <!-- USER DETAILS -->
+        <p class="title is-spaced">
+            <i class="fas fa-user"></i>
+            {{ current_user.username }}
+        </p>
+        <p class="subtitle is-italic">
+            {{ current_user.email }}
+        </p>
+        <hr />
+        <div class="buttons">
+            <a href='{{ url_for("user_web.update_form") }}'
+               class="button is-radiusless">
+                <span class="icon">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                </span>
+                <span>Update Account</span>
+            </a>
+            <a href="#" class="button is-radiusless">
+                <span class="icon">
+                    <i class="fa-solid fa-lock-open"></i>
+                </span>
+                <span>Reset Password</span>
+            </a>
+        </div>
     </div>
 {% endblock content %}

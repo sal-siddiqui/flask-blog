@@ -1,0 +1,73 @@
+{% extends 'layout/base.html' %}
+
+{% set input_labels = [form.username.label, form.email.label] %}
+{% set input_fields = [form.username, form.email] %}
+{% set input_icons = ["fas fa-user", "fas fa-envelope"] %}
+
+{% block content %}
+    <div class="box is-radiusless">
+        <form action=""
+              method="post"
+              autocomplete="off"
+              novalidate>
+            {{ form.hidden_tag() }}
+            <!-- TITLE -->
+            <p class="title">
+                <i class="fa-solid fa-door-closed"></i>
+                Update Form
+            </p>
+            <hr />
+            <!-- FIELDS -->
+            {% for label, field, icon in zip(input_labels, input_fields, input_icons) %}
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        {{ label(class='label has-text-centered') }}
+                    </div>
+                    <div class="field-body">
+                        {% if field.errors %}
+                            <div class="field">
+                                <div class="control has-icons-left has-icons-right">
+                                    {{ field(class='input is-radiusless is-danger') }}
+                                    <span class="icon is-small is-left">
+                                        <i class="{{ icon }}"></i>
+                                    </span>
+                                    <span class="icon is-small is-right">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </span>
+                                </div>
+                                {% for error in field.errors %}
+                                    <p class="help is-danger is-italic">
+                                        {{ error }}
+                                    </p>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div class="field">
+                                <div class="control has-icons-left">
+                                    {{ field(class='input is-radiusless') }}
+                                    <span class="icon is-small is-left">
+                                        <i class="{{ icon }}"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+
+            <!-- SUBMIT BUTTON -->
+            <div class="field is-horizontal">
+                <div class="field-label">
+                    <!-- Left empty for spacing -->
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <p class="control">
+                            {{ form.submit(class='button is-radiusless') }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
