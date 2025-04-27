@@ -27,12 +27,12 @@ def update_form():
     if request.method == "GET":
         form.username.data = current_user.username
         form.email.data = current_user.email
-        return render_template("update-form.html", title="Account", form=form, zip=zip)
+        return render_template("update-form.html", title="Account Update", form=form, zip=zip)
 
     # -- Handle POST Request
     if not form.validate_on_submit():
         flash("Error updating account. Please check the fields and try again.", category="danger")
-        return render_template("update-form.html", title="Account", form=form, zip=zip)
+        return render_template("update-form.html", title="Account Update", form=form, zip=zip)
 
     # update user details
     current_user.username = form.username.data
