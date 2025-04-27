@@ -1,0 +1,25 @@
+<div id="delete-modal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="box is-radiusless">
+            <h2 class="title is-4">
+                Are you sure you want to delete this post?
+            </h2>
+            <div class="buttons">
+                <a href="{{ url_for('post_web.update_post', post_id=post.id) }}"
+                   class="button is-radiusless">
+                    Edit Instead
+                </a>
+                <form action="{{ url_for('post_web.delete_post', post_id=post.id) }}"
+                      method="post">
+                    <button type="submit"
+                            class="button is-radiusless is-danger">
+                        Continue to Delete
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close">
+    </button>
+</div>

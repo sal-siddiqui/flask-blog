@@ -1,0 +1,26 @@
+<div class="card is-radiusless">
+    <div class="card-content">
+        <!-- TITLE -->
+        <p class="title is-spaced">
+            <a href='{{ url_for("post_web.post_page", post_id=post.id) }}'
+               class="has-text-inherit">
+                {{ post.title }}
+            </a>
+        </p>
+
+        <!-- AUTHOR & DATE POSTED -->
+        <p class="subtitle is-6">
+            <a href="#" class="has-text-inherit">
+                {{ post.author.username }}
+            </a>
+            • {{ post.date_posted.strftime("%A %d, %Y") }}
+        </p>
+
+        <!-- CONTENT -->
+        <p class="block has-text-inherit">
+            {{ post.content }}
+        </p>
+
+        {% if options %}{{ options }}{% endif %}
+    </div>
+</div>

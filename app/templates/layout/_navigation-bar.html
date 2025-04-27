@@ -21,6 +21,11 @@
         </div>
         <div class="navbar-end">
             {% if current_user.is_authenticated %}
+                <a href='{{ url_for("post_web.new_post") }}'
+                   class="navbar-item">
+                    <i class="fa-solid fa-pencil"></i>
+                    New Post
+                </a>
                 <a href='{{ url_for("user_web.account") }}'
                    class="navbar-item">
                     <i class="fas fa-user"></i>

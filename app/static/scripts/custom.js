@@ -26,3 +26,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 3000);
   });
 });
+
+// Delete Modal
+const deleteButton = document.getElementById("delete-button");
+const deleteModal = document.getElementById("delete-modal");
+const closeModal = deleteModal.querySelector(".modal-close");
+
+// Open Modal when Delete button is clicked
+deleteButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  deleteModal.classList.add("is-active");
+});
+
+// Close Modal when close button is clicked
+closeModal.addEventListener("click", function () {
+  deleteModal.classList.remove("is-active");
+});
+
+// Close Modal when clicking on background
+deleteModal
+  .querySelector(".modal-background")
+  .addEventListener("click", function () {
+    deleteModal.classList.remove("is-active");
+  });

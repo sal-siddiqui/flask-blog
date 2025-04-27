@@ -1,0 +1,60 @@
+{% extends 'layout/base.html' %}
+
+{% set input_labels = [form.title.label, form.content.label] %}
+{% set input_fields = [form.title, form.content] %}
+{% set input_icons = ["fa-solid fa-tag", "fa-solid fa-file"] %}
+{% block content %}
+    <div class="box is-radiusless">
+
+        <form action=""
+              method="post"
+              autocomplete="off"
+              novalidate>
+
+            {{ form.hidden_tag() }}
+
+            <!-- TITLE -->
+            <p class="title">
+                <i class="fa-solid fa-door-closed"></i>
+                {{ title | title }}
+            </p>
+            <hr />
+
+            {% for label, field, icon in zip(input_labels, input_fields, input_icons) %}
+                <div class="field">
+                    {{ label(class='label') }}
+                    {% if field.errors %}
+                        <div class="control has-icons-left has-icons-right">
+                            {{ field(class='input is-radiusless is-danger') }}
+                            <span class="icon is-small is-left">
+                                <i class="{{ icon }}"></i>
+                            </span>
+                            <span class="icon is-small is-right">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </span>
+                        </div>
+                        {% for error in field.errors %}
+                            <p class="help is-danger is-italic">
+                                {{ error }}
+                            </p>
+                        {% endfor %}
+                    {% else %}
+                        <div class="control has-icons-left">
+                            {{ field(class='input is-radiusless') }}
+                            <span class="icon is-small is-left">
+                                <i class="{{ icon }}"></i>
+                            </span>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <div class="field">
+                <div class="control">
+                    {{ form.submit(class='button is-radiusless') }}
+                </div>
+            </div>
+
+        </form>
+    </div>
+{% endblock %}
