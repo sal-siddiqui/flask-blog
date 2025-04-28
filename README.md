@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is my attempt at learning the **Flask Python framework**. The course I am following is titled the [_Python Flask Tutorial_](https://www.youtube.com/playlist?list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH), created by [Corey Schafer](https://www.youtube.com/@coreyms).
+This is my attempt at learning the **Flask Python framework**. I am following the [Python Flask Tutorial](https://www.youtube.com/playlist?list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH) by [Corey Schafer](https://www.youtube.com/@coreyms).
 
 The application is a blog website that offers the following features:
 
@@ -11,6 +11,7 @@ The application is a blog website that offers the following features:
 - Users can view all posts available on the platform.
 - Users can create new posts, as well as update or delete posts they have authored.
 - Users can update their account details, including their username, email address, and password.
+- **Ideally, users would receive a token via email with instructions to reset their password. However, since I could not get the email service working, I instead flash the reset link directly to the user.**
 
 ## Usage
 

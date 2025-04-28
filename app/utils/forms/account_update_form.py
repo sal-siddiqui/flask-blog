@@ -40,13 +40,3 @@ class AccountUpdateForm(FlaskForm):
             return False
 
         return True
-
-    # def validate_username(self, username):
-    #     already_exists = User.query.filter_by(username=username.data).first()
-    #     if already_exists:
-    #         raise ValidationError("Username already taken. Please choose a different one.")
-
-    # def validate_email(self, email):
-    #     already_exists = User.query.filter_by(email=email.data).first()
-    #     if already_exists:
-    #         raise ValidationError("Email already taken. Please choose a different one.")

@@ -31,10 +31,3 @@ db.session.commit()
 # Clear database
 db.drop_all()
 
------------------------------------------------------------------------------------------------------------------------------------------
-
-from itsdangerous import TimedSerializer as Serializer
-
-serializer = Serializer('secret-key')
-data = serializer.dumps('here is private information')
-serializer.loads(data, max_age=100)

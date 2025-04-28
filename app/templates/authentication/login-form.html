@@ -17,7 +17,7 @@
             <!-- TITLE -->
             <p class="title">
                 <i class="fa-solid fa-door-closed"></i>
-                {{ title | title }}
+                {{ title }} Form
             </p>
             <hr />
 
@@ -105,7 +105,8 @@
                         Forgot your password?
                     </div>
                     <div class="list-item-description mt-1 is-italic">
-                        <a href='#' class="has-text-link">Reset it.</a>
+                        <a href='{{ url_for("user_web.reset_password_request") }}'
+                           class="has-text-link">Reset it.</a>
                     </div>
                 </div>
             </div>
