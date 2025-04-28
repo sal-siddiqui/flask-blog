@@ -1,0 +1,33 @@
+from app import create_app, db
+from app.utils.models import User, Post
+
+app = create_app()
+app.app_context().push()
+
+# Make sure to load the models before running this line
+db.create_all()
+
+
+# Create users
+salman = User(username='Salman', email='salsiddiqui@gmail.com', password='password')
+ibraheem = User(username='Ibraheem', email='ibkanan@gmail.com', password='password')
+
+# Save users
+db.session.add(salman)
+db.session.add(ibraheem)
+db.session.commit()
+
+# Create posts
+post1 = Post(title='Title 1', content='First Post Content', user_id=salman.id)
+post2 = Post(title='Title 2', content='Second Post Content', user_id=salman.id)
+post3 = Post(title='Title 3', content='Third Post Content', user_id=ibraheem.id)
+
+
+# Save posts
+db.session.add_all([post1, post2, post3])
+db.session.commit()
+
+
+# Clear database
+db.drop_all()
+
