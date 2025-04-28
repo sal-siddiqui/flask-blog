@@ -53,3 +53,8 @@ To run the application, follow these steps:
     ```bash
     python run.py
     ```
+
+## Project Demo
+
+To see the application in action, please download and watch the attached file: `demo-video.mp4`.
+The video provides a guided tour of the project's features and functionality.
