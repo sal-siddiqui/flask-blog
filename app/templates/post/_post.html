@@ -10,7 +10,8 @@
 
         <!-- AUTHOR & DATE POSTED -->
         <p class="subtitle is-6">
-            <a href="#" class="has-text-inherit">
+            <a href='{{ url_for("user_web.user_posts", username=post.author.username) }}'
+               class="has-text-inherit">
                 {{ post.author.username }}
             </a>
             • {{ post.date_posted.strftime("%A %d, %Y") }}

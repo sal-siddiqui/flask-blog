@@ -3,6 +3,7 @@ from flask_login import current_user, login_required
 
 from app.extensions import db
 from app.utils.forms import AccountUpdateForm
+from app.utils.models import Post, User
 
 bp_user_web = Blueprint(
     name="user_web",
@@ -41,3 +42,20 @@ def update_form():
 
     flash("Your account has been updated.", category="success")
     return redirect(url_for("user_web.account"))
+
+
+@bp_user_web.route("<string:username>/posts")
+def user_posts(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    page = request.args.get("page", default=1, type=int)
+    posts = (
+        Post.query.filter_by(author=user)
+        .order_by(Post.date_posted.desc())
+        .paginate(page=page, per_page=2)
+    )
+    return render_template(
+        "user-posts.html",
+        title=user.username,
+        posts=posts,
+        user=user,
+    )

@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 from flask_login import login_required
 
 from app.utils.models import Post
@@ -16,7 +16,8 @@ bp_default_web = Blueprint(
 @bp_default_web.route("/")
 @login_required
 def home():
-    posts = Post.query.order_by(Post.date_posted.desc()).all()
+    page = request.args.get("page", default=1, type=int)
+    posts = Post.query.order_by(Post.date_posted.desc()).paginate(per_page=2, page=page)
     return render_template("home.html", posts=posts)
 
 
