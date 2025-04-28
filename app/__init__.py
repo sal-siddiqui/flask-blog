@@ -7,6 +7,7 @@ from app.routes.default import bp_default_web
 from app.routes.authentication import bp_authentication_web
 from app.routes.user import bp_user_web
 from app.routes.post import bp_post_web
+from app.routes.error import bp_error_web
 
 
 def create_app():
@@ -26,5 +27,6 @@ def create_app():
     app.register_blueprint(bp_authentication_web)
     app.register_blueprint(bp_user_web)
     app.register_blueprint(bp_post_web)
+    app.register_blueprint(bp_error_web)
 
     return app

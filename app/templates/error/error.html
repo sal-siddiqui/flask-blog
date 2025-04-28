@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"
+      class="has-background-light theme-light">
+    <head>
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta charset="UTF-8" />
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0" />
+        <!-- link tags -->
+        {% include 'layout/_link-tags.html' %}
+
+        {% if title %}
+            <title>Flask Blog - {{ title }}</title>
+        {% else %}
+            <title>Flask Blog</title>
+        {% endif %}
+    </head>
+    <body>
+        <section class="hero is-fullheight">
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <p class="title is-1 has-text-danger is-spaced">
+                        Error {{ error.code }}
+                    </p>
+                    <p class="subtitle is-italic">
+                        {{ error.description }}
+                    </p>
+                    <a href='{{ url_for("default_web.home") }}'
+                       class="button is-radiusless is-medium">
+                        <span class="icon">
+                            <i class="fa-solid fa-house"></i>
+                        </span>
+                        <span>Home</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
