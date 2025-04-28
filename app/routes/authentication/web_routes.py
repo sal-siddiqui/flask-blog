@@ -19,12 +19,12 @@ def register():
 
     # -- Handle GET request
     if request.method == "GET":
-        return render_template("registration-form.html", form=form, title="Registration", zip=zip)
+        return render_template("registration-form.html", form=form, title="Registration")
 
     # -- Handle POST request
     if not form.validate_on_submit():
         flash("Error submitting form. Please check the fields and try again.", category="danger")
-        return render_template("registration-form.html", form=form, title="Registration", zip=zip)
+        return render_template("registration-form.html", form=form, title="Registration")
 
     # create the user
     password_hashed = bcrypt.generate_password_hash(form.password.data).decode("utf-8")
@@ -44,12 +44,12 @@ def login():
 
     # -- Handle GET request
     if request.method == "GET":
-        return render_template("login-form.html", form=form, title="Login", zip=zip)
+        return render_template("login-form.html", form=form, title="Login")
 
     # -- Handle POST request
     if not form.validate_on_submit():
         flash("Error logging in. Please check the fields and try again.", category="danger")
-        return render_template("login-form.html", form=form, title="Login", zip=zip)
+        return render_template("login-form.html", form=form, title="Login")
 
     # log the user in
     user = User.query.filter_by(email=form.email.data).first()

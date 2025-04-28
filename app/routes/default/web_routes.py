@@ -21,6 +21,7 @@ def home():
     return render_template("home.html", posts=posts)
 
 
-@bp_default_web.route("/about")
-def about():
-    return render_template("about.html", title="About")
+@bp_default_web.route("/test")
+def test():
+    params = dict(a=5, b=7)
+    return render_template("test.html", title="Testing", **params)

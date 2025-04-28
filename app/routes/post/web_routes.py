@@ -20,12 +20,12 @@ def new_post():
 
     # -- Handle GET Request
     if request.method == "GET":
-        return render_template("post-form.html", title="New Post", form=form, zip=zip)
+        return render_template("post-form.html", title="New Post", form=form)
 
     # -- Handle POST Request
     if not form.validate_on_submit():
         flash("Error submitting form. Please check the fields and try again.", category="danger")
-        return render_template("post-form.html", title="New Post", form=form, zip=zip)
+        return render_template("post-form.html", title="New Post", form=form)
 
     # create post
     post = Post(
@@ -64,7 +64,7 @@ def update_post(post_id):
     if request.method == "GET":
         form.title.data = post.title
         form.content.data = post.content
-        return render_template("update-post-form.html", title="Edit Post", form=form, zip=zip)
+        return render_template("update-post-form.html", title="Edit Post", form=form)
 
     # -- Handle POST Request
     if not form.validate_on_submit():
@@ -72,37 +72,7 @@ def update_post(post_id):
             "An error occurred when submitting the form. Please check the fields and try again.",
             category="danger",
         )
-        return render_template("update-post-form.html", title="Edit Post", form=form, zip=zip)
-
-    # update the post
-    post.title = form.title.data
-    post.content = form.content.data
-    db.session.commit()
-
-    flash(f"Post <b>{post.title}</b> was updated successfully.", category="success")
-    return redirect(url_for("post_web.post_page", post_id=post.id))
-
-    post = Post.query.filter_by(id=post_id).first()
-    if not post:
-        abort(404)
-    if not post.author == current_user:
-        abort(403)
-
-    form = UpdatePostForm()
-
-    # -- Handle GET Request
-    if request.method == "GET":
-        form.title.data = post.title
-        form.content.data = post.content
-        return render_template("update-post-form.html", title="Edit Post", form=form, zip=zip)
-
-    # -- Handle POST Request
-    if not form.validate_on_submit():
-        flash(
-            "An error occurred when submitting the form. Please check the fields and try again.",
-            category="danger",
-        )
-        return render_template("update-post-form.html", title="Edit Post", form=form, zip=zip)
+        return render_template("update-post-form.html", title="Edit Post", form=form)
 
     # update the post
     post.title = form.title.data

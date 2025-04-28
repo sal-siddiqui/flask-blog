@@ -2,7 +2,7 @@
 {% set endpoint = "default_web.home" %}
 {% block content %}
     {% for post in posts.items %}
-        {% include './post/_post.html' %}
+        {% include './components/_post.html' %}
     {% endfor %}
-    {% include './default/_pagination.html' %}
+    {% include './components/_pagination.html' %}
 {% endblock content %}

@@ -16,7 +16,7 @@ bp_user_web = Blueprint(
 @bp_user_web.route("/account", methods=["GET", "POST"])
 @login_required
 def account():
-    return render_template("account.html", title="Account", zip=zip)
+    return render_template("account.html", title="Account")
 
 
 @bp_user_web.route("/update-account", methods=["GET", "POST"])
@@ -28,12 +28,12 @@ def update_form():
     if request.method == "GET":
         form.username.data = current_user.username
         form.email.data = current_user.email
-        return render_template("update-form.html", title="Update Account", form=form, zip=zip)
+        return render_template("update-form.html", title="Update Account", form=form)
 
     # -- Handle POST Request
     if not form.validate_on_submit():
         flash("Error updating account. Please check the fields and try again.", category="danger")
-        return render_template("update-form.html", title="Update Account", form=form, zip=zip)
+        return render_template("update-form.html", title="Update Account", form=form)
 
     # update user details
     current_user.username = form.username.data
@@ -53,4 +53,6 @@ def user_posts(username):
         .order_by(Post.date_posted.desc())
         .paginate(page=page, per_page=2)
     )
-    return render_template("user-posts.html", title=user.username, posts=posts, user=user)
+    return render_template(
+        "user-posts.html", title=user.username, posts=posts, user=user, username=user.username
+    )

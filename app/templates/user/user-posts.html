@@ -1,40 +1,17 @@
 {% extends 'layout/base.html' %}
 {% set endpoint = "user_web.user_posts" %}
 {% block content %}
+    <!-- TITLE -->
     <p class="title">
         <i class="fa-solid fa-user"></i>
         {{ user.username }} ({{ posts.total }})
     </p>
+
+    <!-- POSTS -->
     {% for post in posts.items %}
-        {% include './post/_post.html' %}
+        {% include './components/_post.html' %}
     {% endfor %}
-    <nav class="pagination is-centered">
 
-        <a href='{{ url_for(request.endpoint, page=posts.prev_num, username=user.username) if posts.has_prev else "#" }}'
-           class="pagination-previous is-radiusless"
-           {% if not posts.has_prev %}disabled{% endif %}>Previous</a>
-
-        <a href='{{ url_for(request.endpoint, page=posts.next_num, username=user.username) if posts.has_next else "#" }}'
-           class="pagination-next is-radiusless"
-           {% if not posts.has_next %}disabled{% endif %}>Next page</a>
-
-        <ul class="pagination-list">
-            {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=1) %}
-                <li>
-                    {% if page_num == posts.page %}
-                        <a href="#"
-                           class="pagination-link is-radiusless is-current">{{ page_num }}</a>
-                    {% elif page_num %}
-                        <a href='{{ url_for(request.endpoint, page=page_num, username=user.username) }}'
-                           class="pagination-link is-radiusless">{{ page_num }}</a>
-                    {% else %}
-                        <span class="pagination-ellipsis is-radiusless">
-                            <i class="fa-solid fa-ellipsis"></i>
-                        </span>
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ul>
-    </nav>
-
+    <!-- NAVIGATION -->
+    {% include './components/_pagination.html' %}
 {% endblock content %}
