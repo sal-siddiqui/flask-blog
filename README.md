@@ -73,5 +73,5 @@ To run the application, you can either clone the GitHub repository to your local
 
 ## 🎥 Project Demo
 
-To see the application in action, please download and watch the attached file: `demo-video.mp4`.
+To see the application in action, please click [here](https://youtu.be/z8yGFXgWYDo).
 The video provides a guided tour of the project's features and functionality.
