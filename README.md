@@ -70,7 +70,7 @@ To run the application, you can either clone the GitHub repository to your local
 2.  Run the container:
 
     ```bash
-    docker container run -d -p 5000:5000 --name flask_blog salsiddiqui02/flask-blog
+    docker container run --rm -d -p 5000:5000 --name flask_blog salsiddiqui02/flask-blog
     ```
 
 
@@ -78,6 +78,12 @@ To run the application, you can either clone the GitHub repository to your local
 
     ```bash
     docker container stop flask_blog
+    ```
+
+4. Remove the image:
+
+    ```bash
+    docker image remove salsiddiqui02/flask-blog
     ```
 
 ## 🎥 Project Demo
