@@ -13,7 +13,7 @@ The application is a blog website that offers the following features:
 - Users can update their account details, including their username, email address, and password.
 - **Ideally, users would receive a token via email with instructions to reset their password. However, since I could not get the email service working, I instead flash the reset link directly to the user.**
 
-## ⚙️ Usage
+## ▶️ Usage
 
 To run the application, you can either clone the GitHub repository to your local machine or pull the image from Docker.
 
@@ -71,7 +71,7 @@ To run the application, you can either clone the GitHub repository to your local
     docker container run -d -p 5000:5000 salsiddiqui02/flask-blog
     ```
 
-## Project Demo
+## 🎥 Project Demo
 
 To see the application in action, please download and watch the attached file: `demo-video.mp4`.
 The video provides a guided tour of the project's features and functionality.
