@@ -1,6 +1,6 @@
 # flask-blog
 
-## Project Overview
+## 📝 Project Overview
 
 This is my attempt at learning the **Flask Python framework**. I am following the [Python Flask Tutorial](https://www.youtube.com/playlist?list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH) by [Corey Schafer](https://www.youtube.com/@coreyms).
 
@@ -13,9 +13,11 @@ The application is a blog website that offers the following features:
 - Users can update their account details, including their username, email address, and password.
 - **Ideally, users would receive a token via email with instructions to reset their password. However, since I could not get the email service working, I instead flash the reset link directly to the user.**
 
-## Usage
+## ⚙️ Usage
 
-To run the application, follow these steps:
+To run the application, you can either clone the GitHub repository to your local machine or pull the image from Docker.
+
+### GitHub Repository
 
 1.  Clone the repository from GitHub:
 
@@ -53,6 +55,20 @@ To run the application, follow these steps:
 
     ```bash
     python run.py
+    ```
+
+### Docker
+
+1.  Pull the image to your local machine:
+
+    ```bash
+    docker image pull salsiddiqui02/flask-blog
+    ```
+
+2.  Run the container:
+
+    ```bash
+    docker container run -d -p 5000:5000 salsiddiqui02/flask-blog
     ```
 
 ## Project Demo

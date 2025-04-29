@@ -9,7 +9,7 @@ def main():
     app.jinja_env.globals.update(zip=zip)
 
     # initialize server
-    app.run(host="localhost", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000)
 
 
 if __name__ == "__main__":
