@@ -70,7 +70,14 @@ To run the application, you can either clone the GitHub repository to your local
 2.  Run the container:
 
     ```bash
-    docker container run -d -p 5000:5000 salsiddiqui02/flask-blog
+    docker container run -d -p 5000:5000 --name flask_blog salsiddiqui02/flask-blog
+    ```
+
+
+3.  Stop the container:
+
+    ```bash
+    docker container stop flask_blog
     ```
 
 ## 🎥 Project Demo
