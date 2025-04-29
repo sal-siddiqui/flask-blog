@@ -17,7 +17,7 @@ The application is a blog website that offers the following features:
 
 ## ▶️ Usage
 
-To run the application, you can either clone the GitHub repository to your local machine or pull the image from Docker.
+To run the application, you can either clone the GitHub repository to your local machine or pull the image from Docker. Thereafter, navigate to `localhost:5000/auth/login`.
 
 ### GitHub Repository
 
