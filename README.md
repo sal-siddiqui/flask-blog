@@ -13,7 +13,7 @@ The application is a blog website that offers the following features:
 - Users can update their account details, including their username, email address, and password.
 - **Ideally, users would receive a token via email with instructions to reset their password. However, since I could not get the email service working, I instead flash the reset link directly to the user.**
 
-I have completed the project. In the future, I would like to explore the Flask [Mega Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) by [Miguel Grinberg](https://blog.miguelgrinberg.com/) to further enhance my knowledge. I plan to integrate additional concepts from the tutorial into this project.
+>> I have completed the project. In the future, I would like to explore the Flask [Mega Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) by [Miguel Grinberg](https://blog.miguelgrinberg.com/) to further enhance my knowledge. I plan to integrate additional concepts from the tutorial into this project.
 
 ## ▶️ Usage
 
