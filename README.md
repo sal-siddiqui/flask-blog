@@ -1,4 +1,4 @@
-# flask-blog
+# flask_blog
 
 ## 📝 Project Overview
 
