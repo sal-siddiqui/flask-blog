@@ -92,10 +92,7 @@ The video provides a guided tour of the project's features and functionality.
 ## 🧭 Future Work
 
 - **Explore the Flask [Mega Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) by [Miguel Grinberg](https://blog.miguelgrinberg.com/)**  
-  Tackle this comprehensive guide to deepen my understanding of Flask and apply relevant concepts to enhance this project.
+  I would like to learn more about Flask and apply relevant concepts to enhance this project.
 
-- **Migrate the database to AWS**  
-  Currently, the application relies on a local SQLite database. In the future, I aim to migrate the database to AWS so that multiple users can interact with a shared, cloud-hosted database.
-
-- **Deploy the application for public access**  
-  At present, the application runs locally on the user's machine. I intend to deploy it—potentially on AWS—so it can be accessed remotely by other users via the internet.
+- **Take the “[Building REST APIs with Flask](https://www.udemy.com/course/building-rest-apis-with-flask-and-python/)” course by [Pratam Sharmaa](https://www.udemy.com/user/pratap-sharma-2/)**  
+  I would like to learn how to build RESt APIs in addition to using traditional web routes. I’m also interested in understanding how to integrate these APIs with the frontend.
