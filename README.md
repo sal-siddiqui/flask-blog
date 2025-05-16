@@ -91,8 +91,8 @@ The video provides a guided tour of the project's features and functionality.
 
 ## 🧭 Future Work
 
-- **Explore the ["Flask Mega Tutorial"](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) by [Miguel Grinberg](https://blog.miguelgrinberg.com/)**  
+- **Explore the [Flask Mega Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) by [Miguel Grinberg](https://blog.miguelgrinberg.com/)**  
   I would like to learn more about Flask and apply relevant concepts to enhance this project.
 
-- **Take the ["Building REST APIs with Flask"](https://www.udemy.com/course/building-rest-apis-with-flask-and-python/) course by [Pratam Sharmaa](https://www.udemy.com/user/pratap-sharma-2/)**  
-  I would like to learn how to build RESt APIs in addition to using traditional web routes. I’m also interested in understanding how to integrate these APIs with the frontend.
+- **Take the [Building REST APIs with Flask Course](https://www.udemy.com/course/building-rest-apis-with-flask-and-python/) by [Pratam Sharmaa](https://www.udemy.com/user/pratap-sharma-2/)**  
+  I would like to learn how to build RESt APIs with Flask and integrate them with the frontend.
