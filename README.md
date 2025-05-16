@@ -95,4 +95,4 @@ The video provides a guided tour of the project's features and functionality.
   I would like to learn more about Flask and apply relevant concepts to enhance this project.
 
 - **Take the [Building REST APIs with Flask Course](https://www.udemy.com/course/building-rest-apis-with-flask-and-python/) by [Pratam Sharmaa](https://www.udemy.com/user/pratap-sharma-2/)**  
-  I would like to learn how to build RESt APIs with Flask and integrate them with the frontend.
+  I would like to learn how to build REST APIs with Flask and integrate them with the frontend.
